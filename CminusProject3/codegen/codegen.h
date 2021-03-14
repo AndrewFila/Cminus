@@ -29,8 +29,8 @@ EXTERN(int, emitLoadVariable,(DList instList, int varIndex));
 EXTERN(int, emitLoadIntegerConstant,(DList instList, char* intConst));
 
 EXTERN(void, addIdToSymtab, (SymTable symtab, char* id));
-EXTERN(int, emitIf, (DList instList, int regIndex));
-EXTERN(int, emitThen, (DList instList, int labelNum));
-EXTERN(void, emitEndIf, (DList instList, int labelNum));
+EXTERN(int, emitIf, (DList instList,SymTable symtab, int regIndex));
+EXTERN(int, emitThen, (DList instList, SymTable symtab, int labelNum));
+EXTERN(void, emitEndIf, (DList instList, SymTable symtab, int labelNum));
 #endif /*CODEGEN_H_*/
 

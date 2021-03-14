@@ -195,24 +195,24 @@ Assignment      : Variable ASSIGN Expr SEMICOLON
 
 IfStatement	    : IF TestAndThen ELSE CompoundStatement
                 {
-                    emitEndIf(instList, $2);
+                    emitEndIf(instList,symtab, $2);
                 }
                 | IF TestAndThen
                 {
-                    emitEndIf(instList, $2);
+                    emitEndIf(instList,symtab, $2);
                 }
                 ;
 
 
 TestAndThen	    : Test CompoundStatement
                 {
-                    $$ = emitThen(instList, $1);
+                    $$ = emitThen(instList,symtab, $1);
                 }
                 ;
 
 Test		    : LPAREN Expr RPAREN
                 {
-                    $$ = emitIf(instList, $2);
+                    $$ = emitIf(instList,symtab, $2);
                 }
                 ;
 

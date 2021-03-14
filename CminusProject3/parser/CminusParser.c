@@ -1,4 +1,4 @@
-/* A Bison parser, made by GNU Bison 3.7.2.  */
+/* A Bison parser, made by GNU Bison 3.7.3.  */
 
 /* Bison implementation for Yacc-like parsers in C
 
@@ -49,7 +49,7 @@
 #define YYBISON 1
 
 /* Bison version.  */
-#define YYBISON_VERSION "3.7.2"
+#define YYBISON_VERSION "3.7.3"
 
 /* Skeleton name.  */
 #define YYSKELETON_NAME "yacc.c"
@@ -1334,7 +1334,7 @@ yyreduce:
   case 31: /* IfStatement: IF TestAndThen ELSE CompoundStatement  */
 #line 197 "CminusParser.y"
                 {
-                    emitEndIf(instList, (yyvsp[-2].labelIndex));
+                    emitEndIf(instList,symtab, (yyvsp[-2].labelIndex));
                 }
 #line 1340 "CminusParser.c"
     break;
@@ -1342,7 +1342,7 @@ yyreduce:
   case 32: /* IfStatement: IF TestAndThen  */
 #line 201 "CminusParser.y"
                 {
-                    emitEndIf(instList, (yyvsp[0].labelIndex));
+                    emitEndIf(instList,symtab, (yyvsp[0].labelIndex));
                 }
 #line 1348 "CminusParser.c"
     break;
@@ -1350,7 +1350,7 @@ yyreduce:
   case 33: /* TestAndThen: Test CompoundStatement  */
 #line 208 "CminusParser.y"
                 {
-                    (yyval.labelIndex) = emitThen(instList, (yyvsp[-1].labelIndex));
+                    (yyval.labelIndex) = emitThen(instList,symtab, (yyvsp[-1].labelIndex));
                 }
 #line 1356 "CminusParser.c"
     break;
@@ -1358,7 +1358,7 @@ yyreduce:
   case 34: /* Test: LPAREN Expr RPAREN  */
 #line 214 "CminusParser.y"
                 {
-                    (yyval.labelIndex) = emitIf(instList, (yyvsp[-1].regIndex));
+                    (yyval.labelIndex) = emitIf(instList,symtab, (yyvsp[-1].regIndex));
                 }
 #line 1364 "CminusParser.c"
     break;
