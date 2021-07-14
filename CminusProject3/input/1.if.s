@@ -36,8 +36,8 @@ main:	nop
 	movl %r8d, %esi
 	movl $0, %eax
 	call printf@PLT
-	jmp	.L1
-.L0:	nop
+	jmp	.L0
+.L1:	nop
 .L1:	nop
 	leaq .string_const3(%rip), %rdi
 	call printf@PLT
